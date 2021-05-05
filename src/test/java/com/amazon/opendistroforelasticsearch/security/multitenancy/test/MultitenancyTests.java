@@ -355,8 +355,8 @@ public class MultitenancyTests extends SingleClusterTest {
         final RestHelper rh = nonSslRestHelper();
 
         HttpResponse res;
-        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana-6/doc/6.2.2?pretty", encodeBasicHeader("kibanaro", "kibanaro"))).getStatusCode());
-        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana/doc/6.2.2?pretty", encodeBasicHeader("kibanaro", "kibanaro"))).getStatusCode());
+        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana-6/doc/6.2.2?pretty", encodeBasicHeader("opensearchdashboardsro", "opensearchdashboardsro"))).getStatusCode());
+        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana/doc/6.2.2?pretty", encodeBasicHeader("opensearchdashboardsro", "opensearchdashboardsro"))).getStatusCode());
 
         System.out.println(res.getBody());
 
@@ -379,16 +379,16 @@ public class MultitenancyTests extends SingleClusterTest {
                 .actionGet();
 
             tc.index(new IndexRequest(".kibana_1").type("doc").id("6.2.2").setRefreshPolicy(RefreshPolicy.IMMEDIATE).source(body, XContentType.JSON)).actionGet();
-            tc.index(new IndexRequest(".kibana_-900636979_kibanaro").type("doc").id("6.2.2").setRefreshPolicy(RefreshPolicy.IMMEDIATE).source(body, XContentType.JSON)).actionGet();
+            tc.index(new IndexRequest(".kibana_-900636979_opensearchdashboardsro").type("doc").id("6.2.2").setRefreshPolicy(RefreshPolicy.IMMEDIATE).source(body, XContentType.JSON)).actionGet();
 
         }
 
         final RestHelper rh = nonSslRestHelper();
 
         HttpResponse res;
-        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana/doc/6.2.2?pretty", new BasicHeader("securitytenant", "__user__"), encodeBasicHeader("kibanaro", "kibanaro"))).getStatusCode());
+        Assert.assertEquals(HttpStatus.SC_OK, (res = rh.executeGetRequest(".kibana/doc/6.2.2?pretty", new BasicHeader("securitytenant", "__user__"), encodeBasicHeader("opensearchdashboardsro", "opensearchdashboardsro"))).getStatusCode());
         System.out.println(res.getBody());
-        Assert.assertTrue(res.getBody().contains(".kibana_-900636979_kibanaro"));
+        Assert.assertTrue(res.getBody().contains(".kibana_-900636979_opensearchdashboardsro"));
     }
 
 }

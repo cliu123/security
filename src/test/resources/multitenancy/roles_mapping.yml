@@ -42,7 +42,7 @@ opensearchdashboards_user:
   backend_roles: []
   hosts: []
   users:
-  - "kibanaro"
+  - "opensearchdashboardsro"
   - "admin"
   - user_a
   - user_b

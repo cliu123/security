@@ -22,7 +22,7 @@ opensearchdashboardsserver:
   reserved: true
   description: "Demo opensearchdashboardsserver user"
 
-kibanaro:
+opensearchdashboardsro:
   hash: "$2a$12$JJSXNfTowz7Uu5ttXfeYpeYE0arACvcwlPBStB1F.MI7f0U9Z4DGC"
   reserved: false
   backend_roles:
@@ -32,7 +32,7 @@ kibanaro:
     attribute1: "value1"
     attribute2: "value2"
     attribute3: "value3"
-  description: "Demo kibanaro user"
+  description: "Demo opensearchdashboardsro user"
 
 logstash:
   hash: "$2a$12$u1ShR4l4uBS3Uv59Pa2y5.1uQuZBrZtmNfqB3iM/.jL0XoV9sghS2"

@@ -42,7 +42,7 @@ opendistro_security_kibana:
   backend_roles: []
   hosts: []
   users:
-  - "kibanaro"
+  - "opensearchdashboardsro"
   and_backend_roles: []
   description: "Migrated from v6"
 opendistro_security_manage_snapshots:
