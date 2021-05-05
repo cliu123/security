@@ -302,7 +302,7 @@ public class RolesApiTest extends AbstractRestApiUnitTest {
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(1).get("allowed_actions").get(0).asString(), "opensearchdashboards_all_read");
 
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("tenant_patterns").get(0).asString(), "tenant2");
-        Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("allowed_actions").get(0).asString(), "kibana_all_write");
+        Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("allowed_actions").get(0).asString(), "opensearchdashboards_all_write");
 
 
         response = rh.executePutRequest("/_opendistro/_security/api/roles/opendistro_security_role_starfleet_captains",
@@ -320,7 +320,7 @@ public class RolesApiTest extends AbstractRestApiUnitTest {
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("tenant_patterns").get(0).asString(), "tenant2");
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("tenant_patterns").get(1).asString(), "tenant4");
 
-        Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("allowed_actions").get(0).asString(), "kibana_all_write");
+        Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(0).get("allowed_actions").get(0).asString(), "opensearchdashboards_all_write");
 
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(1).get("tenant_patterns").get(0).asString(), "tenant1");
         Assert.assertEquals(new SecurityJsonNode(settings).getDotted("opendistro_security_role_starfleet_captains.tenant_permissions").get(1).get("tenant_patterns").get(1).asString(), "tenant3");

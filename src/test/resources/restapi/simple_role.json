@@ -17,7 +17,7 @@
       "admin_tenant"
     ],
     "allowed_actions": [
-      "kibana_all_write"
+      "opensearchdashboards_all_write"
     ]
   }]
 }

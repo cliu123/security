@@ -45,4 +45,4 @@ opendistro_security_human_resources_trainee:
   - tenant_patterns:
     - "gl*al_te*ant"
     allowed_actions:
-    - "kibana_all_write"
+    - "opensearchdashboards_all_write"

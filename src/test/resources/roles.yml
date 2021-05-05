@@ -338,7 +338,7 @@ zdummy_all:
   - tenant_patterns:
     - "admin_1"
     allowed_actions:
-    - "kibana_all_write"
+    - "opensearchdashboards_all_write"
   - tenant_patterns:
     - "abcdef_2_2"
     allowed_actions:
@@ -729,7 +729,7 @@ role_klingons1:
   - tenant_patterns:
     - "kltentrw"
     allowed_actions:
-    - "kibana_all_write"
+    - "opensearchdashboards_all_write"
   - tenant_patterns:
     - "kltentro"
     allowed_actions:
@@ -767,7 +767,7 @@ role_klingons2:
   - tenant_patterns:
     - "praxisrw"
     allowed_actions:
-    - "kibana_all_write"
+    - "opensearchdashboards_all_write"
   - tenant_patterns:
     - "praxisro"
     allowed_actions:

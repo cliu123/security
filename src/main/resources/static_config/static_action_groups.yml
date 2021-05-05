@@ -2,7 +2,7 @@
 _meta:
   type: "actiongroups"
   config_version: 2
-kibana_all_write:
+opensearchdashboards_all_write:
   reserved: true
   hidden: false
   static: true
