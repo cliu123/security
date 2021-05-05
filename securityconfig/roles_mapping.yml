@@ -30,8 +30,8 @@ logstash:
 opensearchdashboards_user:
   reserved: false
   backend_roles:
-  - "kibanauser"
-  description: "Maps kibanauser to opensearchdashboards"
+  - "opensearchdashboardsuser"
+  description: "Maps opensearchdashboardsuser to opensearchdashboards"
 
 readall:
   reserved: false

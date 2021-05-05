@@ -85,7 +85,7 @@ userpassword: nondnroles
 mail: nondnroles@example.com
 # no memberOf IOD registered, so we use 'description'
 description: humanresources
-description: kibanauser
+description: opensearchdashboardsuser
 description: cn=dummyempty,ou=groups,o=TEST
 description: cn=role2,ou=groups,o=TEST
 ou: anotherrole

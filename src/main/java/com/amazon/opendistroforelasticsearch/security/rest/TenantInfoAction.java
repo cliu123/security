@@ -153,7 +153,7 @@ public class TenantInfoAction extends BaseRestHandler {
             return false;
         }
 
-        // check if the user is a kibanauser or super admin
+        // check if the user is a opensearchdashboardsuser or super admin
         if (user.getName().equals(evaluator.kibanaServerUsername()) || adminDns.isAdmin(user)) {
             return true;
         }

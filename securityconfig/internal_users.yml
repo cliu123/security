@@ -26,7 +26,7 @@ kibanaro:
   hash: "$2a$12$JJSXNfTowz7Uu5ttXfeYpeYE0arACvcwlPBStB1F.MI7f0U9Z4DGC"
   reserved: false
   backend_roles:
-  - "kibanauser"
+  - "opensearchdashboardsuser"
   - "readall"
   attributes:
     attribute1: "value1"

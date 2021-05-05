@@ -864,7 +864,7 @@ public class LdapBackendTest {
         Assert.assertNotNull(user);
         Assert.assertEquals("nondnroles", user.getName());
         Assert.assertEquals(5, user.getRoles().size());
-        Assert.assertTrue("Roles do not contain non-LDAP role 'kibanauser'", user.getRoles().contains("kibanauser"));
+        Assert.assertTrue("Roles do not contain non-LDAP role 'opensearchdashboardsuser'", user.getRoles().contains("opensearchdashboardsuser"));
         Assert.assertTrue("Roles do not contain non-LDAP role 'humanresources'", user.getRoles().contains("humanresources"));
         Assert.assertTrue("Roles do not contain LDAP role 'dummyempty'", user.getRoles().contains("dummyempty"));
         Assert.assertTrue("Roles do not contain non-LDAP role 'role2'", user.getRoles().contains("role2"));

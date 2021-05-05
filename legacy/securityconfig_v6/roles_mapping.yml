@@ -17,7 +17,7 @@ opendistro_security_kibana_server:
     
 opendistro_security_kibana_user:
   backendroles:
-    - kibanauser
+    - opensearchdashboardsuser
 
 opendistro_security_readall:
   readonly: true
