@@ -10,7 +10,7 @@ kibana_all_write:
   - "kibana:saved_objects/*/write"
   type: "kibana"
   description: "Allow writing in all kibana apps"
-kibana_all_read:
+opensearchdashboards_all_read:
   reserved: true
   hidden: false
   static: true

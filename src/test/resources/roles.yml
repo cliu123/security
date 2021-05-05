@@ -342,7 +342,7 @@ zdummy_all:
   - tenant_patterns:
     - "abcdef_2_2"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 multiget:
   reserved: false
   hidden: false
@@ -733,7 +733,7 @@ role_klingons1:
   - tenant_patterns:
     - "kltentro"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 snapres:
   reserved: false
   hidden: false
@@ -771,7 +771,7 @@ role_klingons2:
   - tenant_patterns:
     - "praxisro"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 theindex_admin:
   reserved: false
   hidden: false

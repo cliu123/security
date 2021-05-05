@@ -47,7 +47,7 @@ opendistro_security_kibana_testindex:
   - tenant_patterns:
     - "test_tenant_ro"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 opendistro_security_human_resources:
   reserved: false
   hidden: false
@@ -81,7 +81,7 @@ opendistro_security_human_resources:
   - tenant_patterns:
     - "business_intelligence"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 opendistro_security_human_resources_trainee:
   reserved: false
   hidden: false
@@ -113,7 +113,7 @@ opendistro_security_human_resources_trainee:
     - "performance_data"
     - "business_intelligence"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 opendistro_security_readonly_and_monitor:
   reserved: false
   hidden: false
@@ -334,7 +334,7 @@ opendistro_security_finance:
   - tenant_patterns:
     - "human_resources"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 opendistro_security_readonly_dlsfls:
   reserved: false
   hidden: false
@@ -377,7 +377,7 @@ opendistro_security_finance_trainee:
   - tenant_patterns:
     - "finance"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"
 opendistro_security_role_starfleet:
   reserved: false
   hidden: false

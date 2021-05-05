@@ -41,4 +41,4 @@ opendistro_security_human_resources_trainee:
     - "human_resources"
     - "performance_data"
     allowed_actions:
-    - "kibana_all_read"
+    - "opensearchdashboards_all_read"

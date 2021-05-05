@@ -86,7 +86,7 @@ public class RoleV7 implements Hideable, StaticDefinable {
         
         if(roTenants != null && !roTenants.isEmpty()) {
             Tenant t = new Tenant();
-            t.setAllowed_actions(Collections.singletonList("kibana_all_read"));
+            t.setAllowed_actions(Collections.singletonList("opensearchdashboards_all_read"));
             t.setTenant_patterns(roTenants);
             tenant_permissions.add(t);
         }

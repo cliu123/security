@@ -12,6 +12,6 @@
     "allowed_actions" : [ "kibana_all_write" ]
   }, {
     "tenant_patterns" : [ "tenant1" ],
-    "allowed_actions" : [ "kibana_all_read" ]
+    "allowed_actions" : [ "opensearchdashboards_all_read" ]
   } ]
 }
