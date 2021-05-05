@@ -21,7 +21,7 @@ all_access:
       allowed_actions:
         - "kibana_all_write"
 
-kibana_user:
+opensearchdashboards_user:
   reserved: true
   hidden: false
   static: true

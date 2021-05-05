@@ -27,11 +27,11 @@ logstash:
   backend_roles:
   - "logstash"
 
-kibana_user:
+opensearchdashboards_user:
   reserved: false
   backend_roles:
   - "kibanauser"
-  description: "Maps kibanauser to kibana_user"
+  description: "Maps kibanauser to opensearchdashboards"
 
 readall:
   reserved: false
