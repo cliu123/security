@@ -95,7 +95,7 @@ public class KibanaInfoAction extends BaseRestHandler {
                     builder.field("not_fail_on_forbidden_enabled", evaluator.notFailOnForbiddenEnabled());
                     builder.field("kibana_mt_enabled", evaluator.multitenancyEnabled());
                     builder.field("kibana_index", evaluator.kibanaIndex());
-                    builder.field("kibana_server_user", evaluator.kibanaServerUsername());
+                    builder.field("opensearchdashboardsserver_server_user", evaluator.kibanaServerUsername());
                     builder.endObject();
 
                     response = new BytesRestResponse(RestStatus.OK, builder);

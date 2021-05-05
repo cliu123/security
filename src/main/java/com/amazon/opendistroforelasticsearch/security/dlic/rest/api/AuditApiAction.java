@@ -69,7 +69,7 @@ import java.util.Map;
  *       "resolve_indices" : true,
  *       "exclude_sensitive_headers" : true,
  *       "ignore_users" : [
- *         "kibanaserver"
+ *         "opensearchdashboardsserver"
  *       ],
  *       "ignore_requests" : [ ]
  *     },

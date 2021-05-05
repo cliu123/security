@@ -63,7 +63,7 @@ import static com.amazon.opendistroforelasticsearch.security.DefaultObjectMapper
  *     "resolve_indices" : true,
  *     "exclude_sensitive_headers" : true,
  *     "ignore_users" : [
- *       "kibanaserver"
+ *       "opensearchdashboardsserver"
  *     ],
  *     "ignore_requests" : [ ]
  *   },
@@ -84,7 +84,7 @@ import static com.amazon.opendistroforelasticsearch.security.DefaultObjectMapper
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AuditConfig {
 
-    public static final List<String> DEFAULT_IGNORED_USERS = Collections.singletonList("kibanaserver");
+    public static final List<String> DEFAULT_IGNORED_USERS = Collections.singletonList("opensearchdashboardsserver");
     private static Set<String> FIELDS = DefaultObjectMapper.getFields(AuditConfig.class);
 
     private AuditConfig() {

@@ -43,7 +43,7 @@ manage_snapshots:
   backend_roles:
   - "snapshotrestore"
 
-kibana_server:
+opensearchdashboardsserver:
   reserved: true
   users:
-  - "kibanaserver"
+  - "opensearchdashboardsserver"

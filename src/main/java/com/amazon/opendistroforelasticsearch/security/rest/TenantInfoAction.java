@@ -109,7 +109,7 @@ public class TenantInfoAction extends BaseRestHandler {
 
                     final User user = (User)threadContext.getTransient(ConfigConstants.OPENDISTRO_SECURITY_USER);
                     
-                    //only allowed for admins or the kibanaserveruser
+                    //only allowed for admins or the opensearchdashboardsserver
                     if(!isAuthorized()) {
                         response = new BytesRestResponse(RestStatus.FORBIDDEN,"");
                     } else {

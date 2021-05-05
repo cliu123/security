@@ -41,7 +41,7 @@ public class AuditConfigFilterTest {
     @Test
     public void testDefault() {
         // arrange
-        final WildcardMatcher defaultIgnoredUserMatcher = WildcardMatcher.from("kibanaserver");
+        final WildcardMatcher defaultIgnoredUserMatcher = WildcardMatcher.from("opensearchdashboardsserver");
         final EnumSet<AuditCategory> defaultDisabledCategories = EnumSet.of(AUTHENTICATED, GRANTED_PRIVILEGES);
         // act
         final AuditConfig.Filter auditConfigFilter = AuditConfig.Filter.from(Settings.EMPTY);

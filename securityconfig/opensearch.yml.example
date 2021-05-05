@@ -85,7 +85,7 @@ opendistro_security.roles_mapping_resolution: MAPPING_ONLY
 #opendistro_security.audit.threadpool.max_queue_len: 100000
 
 # Ignore users, e.g. do not log audit requests from that users (default: no ignored users)
-#opendistro_security.audit.ignore_users: ['kibanaserver','some*user','/also.*regex possible/']"
+#opendistro_security.audit.ignore_users: ['opensearchdashboardsserver','some*user','/also.*regex possible/']"
 
 # Destination of the auditlog events
 opendistro_security.audit.type: internal_opensearch

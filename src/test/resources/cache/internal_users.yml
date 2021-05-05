@@ -69,7 +69,7 @@ admin:
   backend_roles: []
   attributes: {}
   description: "Migrated from v6"
-kibanaserver:
+opensearchdashboardsserver:
   hash: "$2a$12$4AcgAt3xwOWadA5s5blL6ev39OXDNhmOesEoo33eZtrq2N0YrU3H."
   reserved: false
   hidden: false
