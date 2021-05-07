@@ -8,10 +8,10 @@ config:
     disable_rest_auth: false
     disable_intertransport_auth: false
     respect_request_indices_options: false
-    kibana:
+    opensearch_dashboards:
       multitenancy_enabled: true
       server_username: "opensearchdashboardsserver"
-      index: ".kibana"
+      index: ".opensearch_dashboards"
     http:
       anonymous_auth_enabled: false
       xff:

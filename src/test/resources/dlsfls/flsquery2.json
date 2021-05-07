@@ -10,10 +10,10 @@
    ],
    "highlight":{
       "pre_tags":[
-         "@kibana-highlighted-field@"
+         "@opensearch_dashboards-highlighted-field@"
       ],
       "post_tags":[
-         "@/kibana-highlighted-field@"
+         "@/opensearch_dashboards-highlighted-field@"
       ],
       "fields":{
          "*":{

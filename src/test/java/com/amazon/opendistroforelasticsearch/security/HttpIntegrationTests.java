@@ -650,12 +650,12 @@ public class HttpIntegrationTests extends SingleClusterTest {
         /*
          
             [admin_1, praxisrw, abcdef_2_2, kltentro, praxisro, kltentrw]
-			admin_1==.kibana_-1139640511_admin1
-			praxisrw==.kibana_-1386441176_praxisrw
-			abcdef_2_2==.kibana_-634608247_abcdef22
-			kltentro==.kibana_-2014056171_kltentro
-			praxisro==.kibana_-1386441184_praxisro
-			kltentrw==.kibana_-2014056163_kltentrw
+			admin_1==.opensearch_dashboards_-1139640511_admin1
+			praxisrw==.opensearch_dashboards_-1386441176_praxisrw
+			abcdef_2_2==.opensearch_dashboards_-634608247_abcdef22
+			kltentro==.opensearch_dashboards_-2014056171_kltentro
+			praxisro==.opensearch_dashboards_-1386441184_praxisro
+			kltentrw==.opensearch_dashboards_-2014056163_kltentrw
          
          */
         

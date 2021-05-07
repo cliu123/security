@@ -104,7 +104,7 @@ opendistro_security_role_klingons2:
     allowed_actions:
     - "READ_UT"
   tenant_permissions: []
-opendistro_security_kibana4:
+opendistro_security_opensearch_dashboards4:
   reserved: false
   hidden: false
   description: "Migrated from v6 (all types mapped)"
@@ -124,7 +124,7 @@ opendistro_security_kibana4:
     - "indices:admin/validate/query"
     - "indices:admin/mappings/fields/get"
   - index_patterns:
-    - "?kibana"
+    - "?opensearch_dashboards"
     dls: null
     fls: null
     masked_fields: null
@@ -253,7 +253,7 @@ opendistro_security_marvel_user:
     allowed_actions:
     - "READ_UT"
   - index_patterns:
-    - "?kibana"
+    - "?opensearch_dashboards"
     dls: null
     fls: null
     masked_fields: null
@@ -318,7 +318,7 @@ opendistro_security_user:
     allowed_actions:
     - "READ_UT"
   tenant_permissions: []
-opendistro_security_kibana4_server:
+opendistro_security_opensearch_dashboards4_server:
   reserved: false
   hidden: false
   description: "Migrated from v6 (all types mapped)"
@@ -327,7 +327,7 @@ opendistro_security_kibana4_server:
   - "cluster:monitor/health"
   index_permissions:
   - index_patterns:
-    - "?kibana"
+    - "?opensearch_dashboards"
     dls: null
     fls: null
     masked_fields: null

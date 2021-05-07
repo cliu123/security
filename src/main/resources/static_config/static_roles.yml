@@ -25,7 +25,7 @@ opensearchdashboards_user:
   reserved: true
   hidden: false
   static: true
-  description: "Provide the minimum permissions for a kibana user"
+  description: "Provide the minimum permissions for a opensearch_dashboards user"
   cluster_permissions:
     - "cluster_composite_ops"
   index_permissions:
@@ -77,11 +77,11 @@ manage_snapshots:
     - "indices:data/write/index"
     - "indices:admin/create"
   
-kibana_server:
+opensearch_dashboards_server:
   reserved: true
   hidden: false
   static: true
-  description: "Provide the minimum permissions for the Kibana server"
+  description: "Provide the minimum permissions for the opensearch_dashboards server"
   cluster_permissions:
   - "cluster_monitor"
   - "cluster_composite_ops"

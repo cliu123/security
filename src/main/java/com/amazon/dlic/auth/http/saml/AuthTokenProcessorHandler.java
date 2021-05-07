@@ -96,7 +96,7 @@ class AuthTokenProcessorHandler {
         this.samlRolesKey = settings.get("roles_key");
         this.samlSubjectKey = settings.get("subject_key");
         this.samlRolesSeparator = settings.get("roles_seperator");
-        this.kibanaRootUrl = settings.get("kibana_url");
+        this.kibanaRootUrl = settings.get("opensearch_dashboards_url");
 
         if (samlRolesKey == null || samlRolesKey.length() == 0) {
             log.warn("roles_key is not configured, will only extract subject from SAML");

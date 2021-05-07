@@ -7,12 +7,12 @@ opendistro_security_logstash:
   backendroles:
     - logstash
 
-opendistro_security_kibana_server:
+opendistro_security_opensearch_dashboards_server:
   readonly: true
   users:
     - opensearchdashboardsserver
 
-opendistro_security_kibana_user:
+opendistro_security_opensearch_dashboards_user:
   backendroles:
     - opensearchdashboardsuser
 

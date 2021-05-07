@@ -145,7 +145,7 @@ public class Saml2SettingsProvider {
 
     private void initSpEndpoints(HashMap<String, Object> configProperties) {
         configProperties.put(SettingsBuilder.SP_ASSERTION_CONSUMER_SERVICE_URL_PROPERTY_KEY,
-                this.buildKibanaAssertionConsumerEndpoint(this.opensearchSettings.get("kibana_url")));
+                this.buildKibanaAssertionConsumerEndpoint(this.opensearchSettings.get("opensearch_dashboards_url")));
         configProperties.put(SettingsBuilder.SP_ASSERTION_CONSUMER_SERVICE_BINDING_PROPERTY_KEY,
                 "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST");
         configProperties.put(SettingsBuilder.SP_ENTITYID_PROPERTY_KEY, this.opensearchSettings.get("sp.entity_id"));

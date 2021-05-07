@@ -61,7 +61,7 @@ public class OpendistroSecurityRolesTests extends SingleClusterTest {
 		resc = rh.executeGetRequest("_opendistro/_security/authinfo?pretty", encodeBasicHeader("sr_user", "nagilum"));
 		Assert.assertTrue(resc.getBody().contains("sr_user"));
 		Assert.assertTrue(resc.getBody().contains("xyz_sr"));
-		Assert.assertFalse(resc.getBody().contains("opendistro_security_kibana_server"));
+		Assert.assertFalse(resc.getBody().contains("opendistro_security_opensearch_dashboards_server"));
 		Assert.assertTrue(resc.getBody().contains("backend_roles=[abc_ber]"));
 		Assert.assertEquals(HttpStatus.SC_OK, resc.getStatusCode());
 	}

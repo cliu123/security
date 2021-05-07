@@ -58,7 +58,7 @@ opendistro_security_manage_snapshots:
   - "snapshotrestore"
   and_backend_roles: []
   description: "Migrated from v6"
-opendistro_security_kibana_server:
+opendistro_security_opensearch_dashboards_server:
   reserved: false
   hidden: false
   backend_roles: []
@@ -151,7 +151,7 @@ opendistro_security_role_starfleet_captains:
   users: []
   and_backend_roles: []
   description: "Migrated from v6"
-opendistro_security_kibana4_testindex:
+opendistro_security_opensearch_dashboards4_testindex:
   reserved: false
   hidden: false
   backend_roles: []

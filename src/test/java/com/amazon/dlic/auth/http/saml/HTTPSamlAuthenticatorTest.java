@@ -127,7 +127,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -163,7 +163,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEncryptAssertion(true);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("sp.signature_private_key", "-BEGIN PRIVATE KEY-\n"
                         + Base64.getEncoder().encodeToString(spSigningPrivateKey.getEncoded()) + "-END PRIVATE KEY-")
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
@@ -205,7 +205,7 @@ public class HTTPSamlAuthenticatorTest {
                                         .replaceAll("http://localhost:33667/", mockSamlIdpServer.getMetadataUri());
 
         Settings settings = Settings.builder().put(IDP_METADATA_CONTENT, metadataBody)
-            .put("kibana_url", "http://wherever")
+            .put("opensearch_dashboards_url", "http://wherever")
             .put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
             .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
@@ -243,7 +243,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_CONTENT, "")
-            .put("kibana_url", "http://wherever")
+            .put("opensearch_dashboards_url", "http://wherever")
             .put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
             .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
@@ -259,7 +259,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setDefaultAssertionConsumerService("http://wherever/opendistrosecurity/saml/acs/idpinitiated");
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -295,7 +295,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setDefaultAssertionConsumerService("http://wherever/opendistrosecurity/saml/acs/idpinitiated");
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -322,7 +322,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -348,7 +348,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -375,7 +375,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -413,7 +413,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString("extra=query");
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
         HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);
@@ -451,7 +451,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("roles_seperator", ",").put("path.home", ".")
                 .build();
 
@@ -491,7 +491,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles")
                 .put("sp.signature_private_key", "-BEGIN PRIVATE KEY-\n"
                         + Base64.getEncoder().encodeToString(spSigningPrivateKey.getEncoded()) + "-END PRIVATE KEY-")
@@ -519,7 +519,7 @@ public class HTTPSamlAuthenticatorTest {
         mockSamlIdpServer.setEndpointQueryString(null);
 
         Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
-                .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                 .put("exchange_key", "abc").put("roles_key", "roles").put("sp.signature_private_key", SPOCK_KEY)
                 .put("sp.signature_private_key_password", "changeit").put("path.home", ".").build();
 
@@ -542,7 +542,7 @@ public class HTTPSamlAuthenticatorTest {
 
             Settings settings = Settings.builder().put(IDP_METADATA_URL, mockSamlIdpServer.getMetadataUri())
                     .put("idp.min_refresh_delay", 100)
-                    .put("kibana_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
+                    .put("opensearch_dashboards_url", "http://wherever").put("idp.entity_id", mockSamlIdpServer.getIdpEntityId())
                     .put("exchange_key", "abc").put("roles_key", "roles").put("path.home", ".").build();
 
             HTTPSamlAuthenticator samlAuthenticator = new HTTPSamlAuthenticator(settings, null);

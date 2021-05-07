@@ -127,7 +127,7 @@ public class ConfigV7 {
     
         @Override
         public String toString() {
-            return "Dynamic [filtered_alias_mode=" + filtered_alias_mode + ", kibana=" + kibana + ", http=" + http + ", authc=" + authc + ", authz="
+            return "Dynamic [filtered_alias_mode=" + filtered_alias_mode + ", opensearch_dashboards=" + kibana + ", http=" + http + ", authc=" + authc + ", authz="
                     + authz + "]";
         }
     }
@@ -137,10 +137,10 @@ public class ConfigV7 {
         public boolean multitenancy_enabled = true;
         public String server_username = "opensearchdashboardsserver";
         public String opendistro_role = null;
-        public String index = ".kibana";
+        public String index = ".opensearch_dashboards";
         @Override
         public String toString() {
-            return "Kibana [multitenancy_enabled=" + multitenancy_enabled + ", server_username=" + server_username + ", opendistro_role=" + opendistro_role
+            return "opensearch_dashboards [multitenancy_enabled=" + multitenancy_enabled + ", server_username=" + server_username + ", opendistro_role=" + opendistro_role
             + ", index=" + index + "]";
         }
         

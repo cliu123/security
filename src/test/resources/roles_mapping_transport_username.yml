@@ -213,7 +213,7 @@ role_klingons2:
   users: []
   and_backend_roles: []
   description: "Migrated from v6"
-kibana4:
+opensearch_dashboards4:
   reserved: false
   hidden: false
   backend_roles: []
@@ -258,7 +258,7 @@ multiget:
   - "picard"
   and_backend_roles: []
   description: "Migrated from v6"
-opendistro_security_kibana_server:
+opendistro_security_opensearch_dashboards_server:
   reserved: true
   hidden: false
   backend_roles: []

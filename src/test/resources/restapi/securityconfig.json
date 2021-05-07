@@ -5,10 +5,10 @@
     "disable_rest_auth": false,
     "disable_intertransport_auth":false,
     "respect_request_indices_options":false,
-    "kibana":{
+    "opensearch_dashboards":{
       "multitenancy_enabled":true,
       "server_username":"opensearchdashboardsserver",
-      "index":".kibana"
+      "index":".opensearch_dashboards"
     },
     "http":{
       "anonymous_auth_enabled":false,
@@ -32,9 +32,9 @@
               "entity_id" : "http://example.com"
             },
             "sp" : {
-              "entity_id" : "kibana-saml"
+              "entity_id" : "opensearch-dashboards-saml"
             },
-            "kibana_url" : "http://example.com/_plugin/kibana",
+            "opensearch_dashboards_url" : "http://example.com/_plugin/kibana",
             "roles_key" : "Role",
             "exchange_key" : "aaaaabbbbbaaaaabbbbbaaaaabbbbbaaaaabbbbabaaaaabbbbb"
           }
