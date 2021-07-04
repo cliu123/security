@@ -86,11 +86,6 @@ public class AccountApiAction extends AbstractApiAction {
         this.threadContext = threadPool.getThreadContext();
     }
 
-    @Override
-    public List<Route> routes() {
-        return routes;
-    }
-
     /**
      * GET request to fetch account details
      *
