@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - opendistro-*
+      - test
 
 jobs:
   build:
@@ -39,13 +40,13 @@ jobs:
     - name: Checkout OpenSearch
       uses: actions/checkout@v2
       with:
-        repository: 'opensearch-project/OpenSearch'
+        repository: 'cliu123/OpenSearch'
         path: OpenSearch
-        ref: '1.0'
+        ref: 'Return_routes_in_BaseRestHandler'
 
     - name: Build OpenSearch
       working-directory: ./OpenSearch
-      run: ./gradlew publishToMavenLocal -Dbuild.snapshot=false
+      run: ./gradlew publishToMavenLocal -Dbuild.version_qualifier=rc2 -Dbuild.snapshot=false
 
     - name: Checkstyle
       run: mvn -B checkstyle:checkstyle
