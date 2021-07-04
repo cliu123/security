@@ -73,11 +73,6 @@ public class ActionGroupsApiAction extends PatchableResourceApiAction {
 	}
 
 	@Override
-	public List<Route> routes() {
-		return routes;
-	}
-
-	@Override
 	protected AbstractConfigurationValidator getValidator(final RestRequest request, BytesReference ref, Object... param) {
 		return new ActionGroupValidator(request, isSuperAdmin(), ref, this.settings, param);
 	}
