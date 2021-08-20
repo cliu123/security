@@ -94,6 +94,24 @@ public class SecurityRolesTests extends SingleClusterTest {
 	}
 
 	@Test
+	public void testRecursiveActionGroup() throws Exception {
+		// ConfigUpdateResponse is expected to fail and throw AssertionError
+		Assert.assertThrows(AssertionError.class, () -> {
+		setup(Settings.EMPTY, new DynamicSecurityConfig()
+				.setSecurityActionGroups("action_groups_recursive.yml")
+				.setSecurityRoles("roles_recursive.yml")
+				.setSecurityRolesMapping("roles_mapping_recursive.yml")
+				.setSecurityInternalUsers("internal_users_recursive.yml"), Settings.EMPTY, true);
+		});
+
+		RestHelper rh = nonSslRestHelper();
+		rh.sendAdminCertificate = false;
+
+		HttpResponse resc = rh.executeGetRequest("_cat/nodes?pretty", encodeBasicHeader("recursive_internal_user", "nagilum"));
+		Assert.assertEquals(HttpStatus.SC_SERVICE_UNAVAILABLE, resc.getStatusCode());
+	}
+
+	@Test
 	public void testSecurityRolesImpersonation() throws Exception {
 
 		Settings settings = Settings.builder()

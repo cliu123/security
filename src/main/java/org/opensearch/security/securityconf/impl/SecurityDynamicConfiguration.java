@@ -32,12 +32,14 @@
 package org.opensearch.security.securityconf.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.opensearch.ExceptionsHelper;
+import org.opensearch.OpenSearchSecurityException;
 import org.opensearch.common.bytes.BytesReference;
 import org.opensearch.common.xcontent.ToXContent;
 import org.opensearch.common.xcontent.XContentBuilder;
@@ -54,6 +56,8 @@ import org.opensearch.security.NonValidatingObjectMapper;
 import org.opensearch.security.securityconf.Hashed;
 import org.opensearch.security.securityconf.Hideable;
 import org.opensearch.security.securityconf.StaticDefinable;
+import org.opensearch.security.securityconf.impl.v7.ActionGroupsV7;
+import org.opensearch.security.support.ConfigHelper;
 
 public class SecurityDynamicConfiguration<T> implements ToXContent {
     
@@ -104,7 +108,7 @@ public class SecurityDynamicConfiguration<T> implements ToXContent {
         if(version < 2 && sdc.get_meta() != null) {
             throw new IOException("A version of "+version+" can not have a _meta key for "+ctype);
         }
-        
+
         if(version >= 2 && sdc.get_meta() == null) {
             throw new IOException("A version of "+version+" must have a _meta key for "+ctype);
         }
