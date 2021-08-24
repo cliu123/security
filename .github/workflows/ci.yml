@@ -45,19 +45,19 @@ jobs:
 
     - name: Build OpenSearch
       working-directory: ./OpenSearch
-      run: ./gradlew publishToMavenLocal -Dbuild.snapshot=false
+      run: ./gradlew publishToMavenLocal
 
     - name: Checkstyle
       run: mvn -B checkstyle:checkstyle
 
     - name: Package
-      run: mvn -B clean package -Padvanced -DskipTests
+      run: mvn -B clean package -Padvanced -DskipTests -Dopensearch.version=1.1.0-SNAPSHOT
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
 
     - name: Test
-      run: OPENDISTRO_SECURITY_TEST_OPENSSL_OPT=true mvn -B test
+      run: OPENDISTRO_SECURITY_TEST_OPENSSL_OPT=true mvn -B test -Dopensearch.version=1.1.0-SNAPSHOT
 
     - name: Coverage
       uses: codecov/codecov-action@v1

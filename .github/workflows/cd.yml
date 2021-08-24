@@ -35,13 +35,13 @@ jobs:
 
     - name: Build OpenSearch
       working-directory: ./OpenSearch
-      run: ./gradlew publishToMavenLocal -Dbuild.snapshot=false
+      run: ./gradlew publishToMavenLocal
 
     - name: Build
       run: |
-        mvn -B clean package -Padvanced -DskipTests
+        mvn -B clean package -Padvanced -DskipTests -Dopensearch.version=1.1.0-SNAPSHOT
         artifact_zip=`ls $(pwd)/target/releases/opensearch-security-*.zip | grep -v admin-standalone`
-        ./gradlew build buildDeb buildRpm --no-daemon -ParchivePath=$artifact_zip -Dbuild.snapshot=false
+        ./gradlew build buildDeb buildRpm --no-daemon -ParchivePath=$artifact_zip
         mkdir artifacts
         cp $artifact_zip artifacts/
         cp gradle-build/distributions/*.deb artifacts/

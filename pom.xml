@@ -34,7 +34,7 @@
     <groupId>org.opensearch</groupId>
     <artifactId>opensearch-security</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1.0</version>
+    <version>${version}</version>
     <name>OpenSearch Security</name>
     <description>OpenSearch Security</description>
     <url>https://github.com/opensearch-project/security</url>
@@ -68,7 +68,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.release>8</maven.compiler.release>
 
-        <opensearch.version>1.1.0</opensearch.version>
+        <opensearch.version>1.1.0-SNAPSHOT</opensearch.version>
+        <version>1.1.0.0</version>
 
         <!-- deps -->
         <netty-native.version>2.0.25.Final</netty-native.version>
@@ -103,7 +104,6 @@
         <url>https://github.com/opensearch-project/security</url>
         <connection>scm:git:git@github.com:opensearch-project/security.git</connection>
         <developerConnection>scm:git:git@github.com:opensearch-project/security.git</developerConnection>
-        <tag>1.0.1.0</tag>
     </scm>
 
     <issueManagement>
@@ -831,6 +831,17 @@
         </resources>
     </build>
     <profiles>
+        <profile>
+            <activation>
+                <property>
+                    <name>build.snapshot</name>
+                    <value>!false</value>
+                </property>
+            </activation>
+            <properties>
+                <version>1.1.0.0-SNAPSHOT</version>
+            </properties>
+        </profile>
         <profile>
             <id>advanced</id>
             <build>
