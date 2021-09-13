@@ -125,6 +125,10 @@ public class ConfigurationRepository {
                         try {
                             String lookupDir = System.getProperty("security.default_init.dir");
                             final String cd = lookupDir != null? (lookupDir+"/") : new Environment(settings, configPath).pluginsFile().toAbsolutePath().toString()+"/opensearch-security/securityconfig/";
+                            String openSearchCd = null;
+                            if(lookupDir == null) {
+                                openSearchCd = new Environment(settings, configPath).pluginsFile().toAbsolutePath().toString()+"/opensearch-security/securityconfig_opensearch/";
+                            }
                             File confFile = new File(cd+"config.yml");
                             if(confFile.exists()) {
                                 final ThreadContext threadContext = threadPool.getThreadContext();
@@ -139,6 +143,12 @@ public class ConfigurationRepository {
                                     ConfigHelper.uploadFile(client, cd+"roles_mapping.yml", securityIndex, CType.ROLESMAPPING, DEFAULT_CONFIG_VERSION);
                                     ConfigHelper.uploadFile(client, cd+"internal_users.yml", securityIndex, CType.INTERNALUSERS, DEFAULT_CONFIG_VERSION);
                                     ConfigHelper.uploadFile(client, cd+"action_groups.yml", securityIndex, CType.ACTIONGROUPS, DEFAULT_CONFIG_VERSION);
+
+                                    if(openSearchCd != null) {
+                                        ConfigHelper.uploadFile(client, openSearchCd+"roles.yml", securityIndex, CType.ROLES, DEFAULT_CONFIG_VERSION);
+                                        ConfigHelper.uploadFile(client, openSearchCd+"action_groups.yml", securityIndex, CType.ACTIONGROUPS, DEFAULT_CONFIG_VERSION);
+                                    }
+
                                     if(DEFAULT_CONFIG_VERSION == 2) {
                                         ConfigHelper.uploadFile(client, cd+"tenants.yml", securityIndex, CType.TENANTS, DEFAULT_CONFIG_VERSION);
                                     }

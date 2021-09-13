@@ -94,10 +94,20 @@ public class DynamicConfigFactory implements Initializable, ConfigurationChangeL
         JsonNode staticRolesJsonNode = DefaultObjectMapper.YAML_MAPPER
                 .readTree(DynamicConfigFactory.class.getResourceAsStream("/static_config/static_roles.yml"));
         staticRoles = SecurityDynamicConfiguration.fromNode(staticRolesJsonNode, CType.ROLES, 2, 0, 0);
+        JsonNode openSearchStaticRolesJsonNode = DefaultObjectMapper.YAML_MAPPER
+                .readTree(DynamicConfigFactory.class.getResourceAsStream("/static_config_opensearch/static_roles.yml"));
+        if(openSearchStaticRolesJsonNode != null) {
+            staticRoles.add(SecurityDynamicConfiguration.fromNode(openSearchStaticRolesJsonNode, CType.ROLES, 2, 0, 0));
+        }
 
         JsonNode staticActionGroupsJsonNode = DefaultObjectMapper.YAML_MAPPER
                 .readTree(DynamicConfigFactory.class.getResourceAsStream("/static_config/static_action_groups.yml"));
         staticActionGroups = SecurityDynamicConfiguration.fromNode(staticActionGroupsJsonNode, CType.ACTIONGROUPS, 2, 0, 0);
+        JsonNode openSearchStaticActionGroupsJsonNode = DefaultObjectMapper.YAML_MAPPER
+                .readTree(DynamicConfigFactory.class.getResourceAsStream("/static_config_opensearch/static_action_groups.yml"));
+        if(openSearchStaticActionGroupsJsonNode != null) {
+            staticActionGroups.add(SecurityDynamicConfiguration.fromNode(openSearchStaticActionGroupsJsonNode, CType.ACTIONGROUPS, 2, 0, 0));
+        }
 
         JsonNode staticTenantsJsonNode = DefaultObjectMapper.YAML_MAPPER
                 .readTree(DynamicConfigFactory.class.getResourceAsStream("/static_config/static_tenants.yml"));
