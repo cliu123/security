@@ -24,20 +24,20 @@ jobs:
     - name: Checkout security
       uses: actions/checkout@v2
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: java
+#     - name: Initialize CodeQL
+#       uses: github/codeql-action/init@v1
+#       with:
+#         languages: java
 
-    - name: Cache Maven packages
-      uses: actions/cache@v1
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+#     - name: Cache Maven packages
+#       uses: actions/cache@v1
+#       with:
+#         path: ~/.m2
+#         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+#         restore-keys: ${{ runner.os }}-m2
 
-    - name: Checkstyle
-      run: mvn -B checkstyle:checkstyle
+#     - name: Checkstyle
+#       run: mvn -B checkstyle:checkstyle
 
     - name: Package
       run: mvn -B clean package -Padvanced -DskipTests
