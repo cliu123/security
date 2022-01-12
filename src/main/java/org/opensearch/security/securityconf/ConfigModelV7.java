@@ -38,6 +38,7 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.opensearch.ExceptionsHelper;
+import org.opensearch.OpenSearchSecurityException;
 import org.opensearch.action.support.IndicesOptions;
 import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
 import org.opensearch.cluster.service.ClusterService;
@@ -68,6 +69,7 @@ import static org.opensearch.cluster.metadata.IndexAbstraction.Type.ALIAS;
 public class ConfigModelV7 extends ConfigModel {
 
     protected final Logger log = LogManager.getLogger(this.getClass());
+    protected HashSet<String> resolvedActionGroups = new HashSet<>();
     private ConfigConstants.RolesMappingResolution rolesMappingResolution;
     private ActionGroupResolver agr = null;
     private SecurityRoles securityRoles = null;
@@ -135,7 +137,11 @@ public class ConfigModelV7 extends ConfigModel {
                     // try SG6 format including readonly and permissions key
                 //  en = actionGroups.getAsList(DotPath.of(entry + "." + ConfigConstants.CONFIGKEY_ACTION_GROUPS_PERMISSIONS));
                     //}
-                
+                if (resolvedActionGroups.contains(entry)) {
+                    throw new OpenSearchSecurityException("Recursive Action Groups");
+                }
+                resolvedActionGroups.add(entry);
+
                 if(!actionGroups.getCEntries().containsKey(entry)) {
                     return Collections.emptySet();
                 }
