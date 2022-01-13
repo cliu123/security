@@ -88,20 +88,31 @@ public class ConfigModelV7 extends ConfigModel {
 
         this.roles = roles;
         this.tenants = tenants;
-        
-        try {
-            rolesMappingResolution = ConfigConstants.RolesMappingResolution.valueOf(
-                    opensearchSettings.get(ConfigConstants.SECURITY_ROLES_MAPPING_RESOLUTION, ConfigConstants.RolesMappingResolution.MAPPING_ONLY.toString())
-                            .toUpperCase());
-        } catch (Exception e) {
-            log.error("Cannot apply roles mapping resolution", e);
-            rolesMappingResolution = ConfigConstants.RolesMappingResolution.MAPPING_ONLY;
+
+        if (opensearchSettings != null) {
+            try {
+                rolesMappingResolution = ConfigConstants.RolesMappingResolution.valueOf(
+                        opensearchSettings.get(ConfigConstants.SECURITY_ROLES_MAPPING_RESOLUTION, ConfigConstants.RolesMappingResolution.MAPPING_ONLY.toString())
+                                .toUpperCase());
+            } catch (Exception e) {
+                log.error("Cannot apply roles mapping resolution", e);
+                rolesMappingResolution = ConfigConstants.RolesMappingResolution.MAPPING_ONLY;
+            }
         }
-        
-        agr = reloadActionGroups(actiongroups);
-        securityRoles = reload(roles);
-        tenantHolder = new TenantHolder(roles, tenants);
-        roleMappingHolder = new RoleMappingHolder(rolemappings, dcm.getHostsResolverMode());
+
+        if (actiongroups != null) {
+            log.info("!!!!!In ConfigModelV7 Constructor");
+            agr = reloadActionGroups(actiongroups);
+        }
+        if (roles != null) {
+            securityRoles = reload(roles);
+            if (tenants != null) {
+                tenantHolder = new TenantHolder(roles, tenants);
+            }
+        }
+        if (rolemappings != null && dcm != null) {
+            roleMappingHolder = new RoleMappingHolder(rolemappings, dcm.getHostsResolverMode());
+        }
     }
     
     public Set<String> getAllConfiguredTenantNames() {
@@ -137,10 +148,6 @@ public class ConfigModelV7 extends ConfigModel {
                     // try SG6 format including readonly and permissions key
                 //  en = actionGroups.getAsList(DotPath.of(entry + "." + ConfigConstants.CONFIGKEY_ACTION_GROUPS_PERMISSIONS));
                     //}
-                if (resolvedActionGroups.contains(entry)) {
-                    throw new OpenSearchSecurityException("Recursive Action Groups");
-                }
-                resolvedActionGroups.add(entry);
 
                 if(!actionGroups.getCEntries().containsKey(entry)) {
                     return Collections.emptySet();

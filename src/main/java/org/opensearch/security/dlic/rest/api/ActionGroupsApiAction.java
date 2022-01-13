@@ -15,23 +15,32 @@
 
 package org.opensearch.security.dlic.rest.api;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import org.checkerframework.checker.units.qual.C;
+import org.opensearch.OpenSearchSecurityException;
 import org.opensearch.client.Client;
 import org.opensearch.cluster.service.ClusterService;
 import org.opensearch.common.bytes.BytesReference;
 import org.opensearch.common.inject.Inject;
 import org.opensearch.common.settings.Settings;
+import org.opensearch.rest.RestChannel;
 import org.opensearch.rest.RestController;
 import org.opensearch.rest.RestRequest;
 import org.opensearch.rest.RestRequest.Method;
+import org.opensearch.security.DefaultObjectMapper;
 import org.opensearch.security.auditlog.AuditLog;
 import org.opensearch.security.configuration.AdminDNs;
 import org.opensearch.security.configuration.ConfigurationRepository;
 import org.opensearch.security.dlic.rest.validation.AbstractConfigurationValidator;
 import org.opensearch.security.dlic.rest.validation.ActionGroupValidator;
 import org.opensearch.security.privileges.PrivilegesEvaluator;
+import org.opensearch.security.securityconf.ConfigModelV7;
+import org.opensearch.security.securityconf.impl.SecurityDynamicConfiguration;
+import org.opensearch.security.securityconf.impl.v7.ActionGroupsV7;
 import org.opensearch.security.ssl.transport.PrincipalExtractor;
 import org.opensearch.threadpool.ThreadPool;
 
@@ -59,6 +68,21 @@ public class ActionGroupsApiAction extends PatchableResourceApiAction {
 			new Route(Method.PATCH, "/actiongroups/{name}")
 
 	));
+
+	@Override
+	protected void handlePut(RestChannel channel, final RestRequest request, final Client client, final JsonNode content) throws IOException {
+		final String name = request.param("name");
+		final SecurityDynamicConfiguration<?> existingConfiguration = load(getConfigName(), false);
+		existingConfiguration.putCObject(name, DefaultObjectMapper.readTree(content, existingConfiguration.getImplementingClass()));
+		try {
+			log.info("!!!!!Create ConfigModelV7 object");
+			ConfigModelV7 cm = new ConfigModelV7(null, null, (SecurityDynamicConfiguration<ActionGroupsV7>) existingConfiguration, null, null, null);
+		} catch (StackOverflowError e) {
+			log.info("!!!!!Caught StackOverflowError");
+			throw new OpenSearchSecurityException("Recursive action group");
+		}
+		super.handlePut(channel, request, client, content);
+	}
 
 	@Override
 	protected Endpoint getEndpoint() {
