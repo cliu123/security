@@ -74,9 +74,11 @@ public class ActionGroupsApiAction extends PatchableResourceApiAction {
 		final String name = request.param("name");
 		final SecurityDynamicConfiguration<?> existingConfiguration = load(getConfigName(), false);
 		existingConfiguration.putCObject(name, DefaultObjectMapper.readTree(content, existingConfiguration.getImplementingClass()));
+
+		new ConfigModelV7(null, null, (SecurityDynamicConfiguration<ActionGroupsV7>) existingConfiguration, null, null, null);
 		try {
 			log.info("!!!!!Create ConfigModelV7 object");
-			ConfigModelV7 cm = new ConfigModelV7(null, null, (SecurityDynamicConfiguration<ActionGroupsV7>) existingConfiguration, null, null, null);
+//			new ConfigModelV7(null, null, (SecurityDynamicConfiguration<ActionGroupsV7>) existingConfiguration, null, null, null);
 		} catch (StackOverflowError e) {
 			log.info("!!!!!Caught StackOverflowError");
 			throw new OpenSearchSecurityException("Recursive action group");

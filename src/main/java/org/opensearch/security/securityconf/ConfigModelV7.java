@@ -128,6 +128,7 @@ public class ConfigModelV7 extends ConfigModel {
     }
     
     private ActionGroupResolver reloadActionGroups(SecurityDynamicConfiguration<ActionGroupsV7> actionGroups) {
+        resolvedActionGroups.clear();
         return new ActionGroupResolver() {
             
             private Set<String> getGroupMembers(final String groupname) {
@@ -140,7 +141,11 @@ public class ConfigModelV7 extends ConfigModel {
             }
             
             private Set<String> resolve(final SecurityDynamicConfiguration<?> actionGroups, final String entry) {
-
+                if (resolvedActionGroups.contains(entry)) {
+                    log.info("~~~~~~~" + entry);
+//                    throw new OpenSearchSecurityException("Recursive Action Groups");
+                }
+                resolvedActionGroups.add(entry);
                 
                 // SG5 format, plain array
                 //List<String> en = actionGroups.getAsList(DotPath.of(entry));
@@ -148,7 +153,7 @@ public class ConfigModelV7 extends ConfigModel {
                     // try SG6 format including readonly and permissions key
                 //  en = actionGroups.getAsList(DotPath.of(entry + "." + ConfigConstants.CONFIGKEY_ACTION_GROUPS_PERMISSIONS));
                     //}
-
+                log.info("!!!!!entry is: " + entry);
                 if(!actionGroups.getCEntries().containsKey(entry)) {
                     return Collections.emptySet();
                 }
