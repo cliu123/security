@@ -15,7 +15,7 @@
 
 package org.opensearch.security.dlic.dlsfls;
 
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.common.settings.Settings;
 
 import org.opensearch.security.support.ConfigConstants;

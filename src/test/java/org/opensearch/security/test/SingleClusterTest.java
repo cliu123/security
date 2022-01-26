@@ -30,7 +30,7 @@
 
 package org.opensearch.security.test;
 
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.common.settings.Settings;
 import org.junit.After;
 import org.junit.Assert;

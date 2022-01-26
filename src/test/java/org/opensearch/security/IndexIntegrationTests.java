@@ -42,7 +42,7 @@ import org.opensearch.action.admin.indices.alias.IndicesAliasesRequest.AliasActi
 import org.opensearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.opensearch.action.index.IndexRequest;
 import org.opensearch.action.support.WriteRequest.RefreshPolicy;
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.cluster.health.ClusterHealthStatus;
 import org.opensearch.common.settings.Settings;
 import org.opensearch.common.unit.TimeValue;

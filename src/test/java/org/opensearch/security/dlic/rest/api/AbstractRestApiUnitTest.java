@@ -25,7 +25,7 @@ import org.opensearch.security.DefaultObjectMapper;
 import org.opensearch.security.auditlog.AuditTestUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpStatus;
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.common.settings.Settings;
 import org.opensearch.plugins.Plugin;
 import org.junit.Assert;

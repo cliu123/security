@@ -19,7 +19,7 @@ import org.apache.http.HttpStatus;
 import org.opensearch.action.index.IndexRequest;
 import org.opensearch.action.search.SearchRequest;
 import org.opensearch.action.support.WriteRequest.RefreshPolicy;
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.common.Strings;
 import org.opensearch.common.xcontent.XContentType;
 import org.junit.Assert;

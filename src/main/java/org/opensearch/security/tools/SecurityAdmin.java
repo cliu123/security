@@ -89,7 +89,7 @@ import org.opensearch.action.support.WriteRequest.RefreshPolicy;
 import org.opensearch.action.support.master.AcknowledgedResponse;
 import org.opensearch.client.Client;
 import org.opensearch.client.transport.NoNodeAvailableException;
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.cluster.health.ClusterHealthStatus;
 import org.opensearch.common.Strings;
 import org.opensearch.common.bytes.BytesReference;

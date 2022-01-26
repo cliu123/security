@@ -21,7 +21,7 @@ import org.apache.http.HttpStatus;
 import org.opensearch.action.admin.indices.create.CreateIndexRequest;
 import org.opensearch.action.bulk.BulkRequest;
 import org.opensearch.action.support.WriteRequest.RefreshPolicy;
-import org.opensearch.client.transport.TransportClient;
+import org.opensearch.security.support.TransportClient;
 import org.opensearch.common.xcontent.XContentType;
 import org.junit.Assert;
 import org.junit.Test;
