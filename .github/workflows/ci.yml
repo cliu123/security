@@ -61,3 +61,10 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./build/jacoco/test/jacocoTestReport.xml
+
+    - name: Run Security Backwards Compatibility Tests
+      run: |
+        echo "Running backwards compatibility tests ..."
+        ./gradlew clean build -Dbuild.snapshot=false -x test
+        cp -r build/ ./bwc-test/
+        ./gradlew bwcTestSuite -Dtests.security.manager=false
