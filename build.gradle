@@ -56,18 +56,9 @@ repositories {
 
 ext {
     isSnapshot = "true" == System.getProperty("build.snapshot", "true")
-    opensearch_version = System.getProperty("opensearch.version", "2.0.0-alpha1-SNAPSHOT")
+    default_opensearch_version = property("opensearch-core.version")
+    opensearch_version = System.getProperty("opensearch.version", default_opensearch_version)
     buildVersionQualifier = System.getProperty("build.version_qualifier", "alpha1")
-    // 2.0.0-alpha1-SNAPSHOT -> 2.0.0.0-alpha1-SNAPSHOT
-    version_tokens = opensearch_version.tokenize('-')
-    opensearch_build = version_tokens[0] + '.0'
-    if (buildVersionQualifier) {
-        opensearch_build += "-${buildVersionQualifier}"
-        opensearch_build_nosnapshot = opensearch_build
-    }
-    if (isSnapshot) {
-        opensearch_build += "-SNAPSHOT"
-    }
 }
 
 configurations.all {
@@ -135,9 +126,15 @@ dependencies {
 }
 
 group = 'org.opensearch'
-version = opensearch_build
-
 description = 'OpenSearch Security'
+
+version = property('security-plugin.version')
+if (buildVersionQualifier) {
+    version += "-${buildVersionQualifier}"
+}
+if (isSnapshot) {
+    version += "-SNAPSHOT"
+}
 
 
 java.sourceCompatibility = JavaVersion.VERSION_11
@@ -331,7 +328,7 @@ task createPluginDescriptor() {
         "name=opensearch-security",
         "classname=org.opensearch.security.OpenSearchSecurityPlugin",
         "java.version=${java.targetCompatibility}",
-        "opensearch.version=${opensearch_build_nosnapshot}",
+        "opensearch.version=${opensearch_version}",
     ]
 
     new File("plugin-descriptor.properties").text = descriptorProperties.join ("\n")
